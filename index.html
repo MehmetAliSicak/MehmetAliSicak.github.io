@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merma Tech — Android Uygulamaları</title>
+<meta name="description" content="Merma Tech tarafından geliştirilen Android uygulamaları: YDS YÖKDİL, Sabun Köpüğü Zen, PyCraft, DerinZeka ve daha fazlası.">
+<style>
+  :root{--bg:#0b0820;--text:#f4f2ff;--muted:#b4aed6}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--text);overflow-x:hidden;
+    font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  /* hareketli arka plan */
+  .bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:float 18s ease-in-out infinite}
+  .b1{width:520px;height:520px;background:#7c3aed;top:-120px;left:-120px}
+  .b2{width:460px;height:460px;background:#ec4899;top:30%;right:-140px;animation-delay:-6s}
+  .b3{width:480px;height:480px;background:#06b6d4;bottom:-160px;left:25%;animation-delay:-12s}
+  @keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,-40px) scale(1.15)}}
+  .bubble{position:absolute;bottom:-60px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);
+    background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.35),rgba(255,255,255,0) 60%);
+    animation:rise linear infinite}
+  @keyframes rise{to{transform:translateY(-120vh) translateX(30px);opacity:0}}
+
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  header{padding:24px 0;display:flex;justify-content:space-between;align-items:center}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
+  .logo i{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-style:normal;color:#fff;
+    background:linear-gradient(135deg,#7c3aed,#ec4899)}
+  nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;margin-left:22px;transition:color .2s}
+  nav a:hover{color:#fff}
+
+  .hero{padding:80px 0 70px;text-align:center}
+  .pill{display:inline-block;padding:7px 16px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.04em;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px)}
+  h1{font-size:clamp(40px,8vw,80px);line-height:1.04;letter-spacing:-.035em;font-weight:900;margin:22px 0}
+  .grad{background:linear-gradient(90deg,#a78bfa,#f472b6,#22d3ee,#a78bfa);background-size:250% 100%;
+    -webkit-background-clip:text;background-clip:text;color:transparent;animation:shift 6s linear infinite}
+  @keyframes shift{to{background-position:250% 0}}
+  .hero p{color:var(--muted);font-size:19px;max-width:36em;margin:0 auto}
+  .cta{display:inline-block;margin-top:34px;padding:15px 32px;border-radius:999px;color:#fff;text-decoration:none;font-weight:800;
+    background:linear-gradient(135deg,#7c3aed,#ec4899);box-shadow:0 10px 40px -8px rgba(236,72,153,.7);transition:transform .2s,box-shadow .2s}
+  .cta:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 50px -8px rgba(236,72,153,.9)}
+  .stats{display:flex;justify-content:center;gap:42px;margin-top:54px;flex-wrap:wrap}
+  .stats b{display:block;font-size:34px;font-weight:900}
+  .stats span{color:var(--muted);font-size:13px}
+
+  section{padding:50px 0}
+  h2{font-size:clamp(28px,4.5vw,40px);font-weight:900;letter-spacing:-.025em;text-align:center}
+  .sub{text-align:center;color:var(--muted);margin:8px 0 40px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+  .card{
+    --c1:#7c3aed;--c2:#ec4899;
+    position:relative;display:flex;flex-direction:column;padding:26px;border-radius:24px;text-decoration:none;color:inherit;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px);
+    transition:transform .3s,border-color .3s,box-shadow .3s;overflow:hidden;
+  }
+  .card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--c1),var(--c2));opacity:0;transition:opacity .3s;z-index:-1}
+  .card:hover{transform:translateY(-8px) rotate(-.4deg);border-color:transparent;box-shadow:0 24px 50px -16px var(--c1)}
+  .card:hover::before{opacity:.28}
+  .icon{width:64px;height:64px;border-radius:16px;display:block;object-fit:cover;margin-bottom:18px;
+    box-shadow:0 8px 24px -6px var(--c1)}
+  .card h3{font-size:19px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:14.5px;flex:1}
+  .play{margin-top:20px;display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;color:inherit;text-decoration:none;align-self:flex-start}
+  .play::after{content:"";position:absolute;inset:0;border-radius:24px}
+  .priv{position:relative;z-index:2;margin-top:12px;font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;align-self:flex-start;transition:color .2s}
+  .priv:hover{color:#fff;text-decoration:underline}
+  .play svg{width:18px;height:18px;fill:currentColor}
+  .play em{font-style:normal;transition:transform .25s}
+  .card:hover .play em{transform:translateX(5px)}
+  .c1{--c1:#3b82f6;--c2:#06b6d4}.c2{--c1:#ec4899;--c2:#f59e0b}.c3{--c1:#22c55e;--c2:#14b8a6}
+  .c4{--c1:#f97316;--c2:#ef4444}.c5{--c1:#8b5cf6;--c2:#d946ef}.c6{--c1:#eab308;--c2:#f97316}.c7{--c1:#06b6d4;--c2:#6366f1}
+
+  .contact{margin:20px 0 0;padding:56px 28px;text-align:center;border-radius:32px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg,rgba(124,58,237,.55),rgba(236,72,153,.45));border:1px solid rgba(255,255,255,.2)}
+  .contact p{color:#e6e1ff;max-width:30em;margin:10px auto 0}
+  .mail{display:inline-block;margin-top:26px;padding:15px 30px;border-radius:999px;background:#fff;color:#2a1065;
+    font-weight:800;font-size:clamp(15px,3.4vw,20px);text-decoration:none;transition:transform .2s,box-shadow .2s;word-break:break-all}
+  .mail:hover{transform:translateY(-3px);box-shadow:0 14px 40px -10px rgba(255,255,255,.7)}
+
+  footer{padding:50px 0 44px;text-align:center;color:var(--muted);font-size:13.5px}
+  footer strong{color:#fff}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  @media(max-width:560px){nav a{margin-left:14px}.hero{padding:50px 0 50px}.stats{gap:26px}}
+</style>
+</head>
+<body>
+<div class="bg" id="bg">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+</div>
+
+<div class="wrap">
+  <header>
+    <div class="logo"><i>M</i> Merma Tech</div>
+    <nav><a href="#uygulamalar">Uygulamalar</a><a href="#iletisim">İletişim</a></nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <span class="pill">✨ Google Play'de yayında</span>
+      <h1>Öğren. Gelişir. <span class="grad">Rahatla.</span></h1>
+      <p>Merma Tech olarak sınav hazırlığından yapay zekâya, kodlamadan stres atmaya kadar hayatını kolaylaştıran Android uygulamaları geliştiriyoruz.</p>
+      <a class="cta" href="#uygulamalar">Uygulamaları keşfet ↓</a>
+      <div class="stats">
+        <div><b>7</b><span>Uygulama</span></div>
+        <div><b>Android</b><span>Platform</span></div>
+        <div><b>Ücretsiz</b><span>İndir ve dene</span></div>
+      </div>
+    </div>
+
+    <section id="uygulamalar">
+      <h2>Uygulamalarım</h2>
+      <p class="sub">Karta dokun, doğrudan Google Play'de aç.</p>
+      <div class="grid">
+
+        <div class="card c1 reveal">
+          <img class="icon" src="icons/myapplicationbottom.webp" alt="" width="64" height="64"><h3>YDS Kelime Ezberle: YÖKDİL YDT</h3>
+          <p>YDS, YÖKDİL ve YDT'ye hazırlananlar için kelime ezberleme uygulaması.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.myapplicationbottom"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/ydsyokdilydtprivacy/">🔒 Gizlilik Politikası</a></div>
+
+        <div class="card c2 reveal">
+          <img class="icon" src="icons/zensoapbubbles.webp" alt="" width="64" height="64"><h3>Sabun Köpüğü Zen: Stres Atma</h3>
+          <p>Baloncukları patlat, zihnini sakinleştir. Huzurlu bir anti-stres oyunu.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.zensoapbubbles"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/zen-soap-privacy/">🔒 Gizlilik Politikası</a></div>
+
+        <div class="card c3 reveal">
+          <img class="icon" src="icons/pycraft.webp" alt="" width="64" height="64"><h3>PyCraft: Python Öğren</h3>
+          <p>Python'u adım adım, uygulayarak öğren. Kodlamaya eğlenceli bir giriş.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.pycraft"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/pycraft_privacy/">🔒 Gizlilik Politikası</a></div>
+
+        <div class="card c4 reveal">
+          <img class="icon" src="icons/kariyer.webp" alt="" width="64" height="64"><h3>YZ Çağında Kariyer</h3>
+          <p>Yapay zekâ çağında kariyerini şekillendir, geleceğe hazır ol.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.kariyer"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/privacy_policy_kariyer/">🔒 Gizlilik Politikası</a></div>
+
+        <div class="card c5 reveal">
+          <img class="icon" src="icons/derinzeka.webp" alt="" width="64" height="64"><h3>DerinZeka: Yapay Zeka Öğren</h3>
+          <p>Yapay zekâyı sade ve anlaşılır şekilde öğren, kendini geliştir.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.derinzeka"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/derin_zeka/">🔒 Gizlilik Politikası</a></div>
+
+        <div class="card c6 reveal">
+          <img class="icon" src="icons/lgsngilizcekelimeler8snf.webp" alt="" width="64" height="64"><h3>LGS İngilizce Kelime - Pati</h3>
+          <p>8. sınıf LGS İngilizce kelimelerini eğlenceli şekilde çalış ve pekiştir.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.lgsngilizcekelimeler8snf"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/pati-gizlilik/">🔒 Gizlilik Politikası</a></div>
+
+        <div class="card c7 reveal">
+          <img class="icon" src="icons/bilisimteknolojileri.webp" alt="" width="64" height="64"><h3>Bilişim Teknolojileri - Megep</h3>
+          <p>MEGEP bilişim teknolojileri alanı için konu anlatımı ve çalışma desteği.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.bilisimteknolojileri"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a></div>
+
+      </div>
+    </section>
+
+    <section id="iletisim">
+      <div class="contact reveal">
+        <h2>Bize ulaş 💌</h2>
+        <p>Görüş, öneri, hata bildirimi veya iş birliği için yazabilirsin. Her mesaja dönüş yapıyoruz.</p>
+        <a class="mail" href="mailto:getinfo.myapp@gmail.com">getinfo.myapp@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="y">2026</span> <strong>Merma Tech</strong> · Tüm hakları saklıdır.</footer>
+</div>
+
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+  // yükselen baloncuklar
+  const bg=document.getElementById('bg');
+  for(let i=0;i<14;i++){
+    const b=document.createElement('div');b.className='bubble';
+    const s=14+Math.random()*50;
+    b.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${10+Math.random()*14}s;animation-delay:${-Math.random()*20}s`;
+    bg.appendChild(b);
+  }
+  // kaydırınca beliren kartlar
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
+</script>
+</body>
+</html>
