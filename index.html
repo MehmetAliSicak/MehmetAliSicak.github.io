@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Merma Tech — Android Uygulamaları</title>
-<meta name="description" content="Merma Tech tarafından geliştirilen Android uygulamaları: YDS YÖKDİL, Sabun Köpüğü Zen, PyCraft, DerinZeka ve daha fazlası.">
+<title>Merma Tech — Android Apps</title>
+<meta name="description" content="Android apps by Merma Tech: YDS YÖKDİL, Zen Soap Bubbles, PyCraft, DerinZeka and more.">
 <style>
   :root{--bg:#0b0820;--text:#f4f2ff;--muted:#b4aed6}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -34,6 +34,8 @@
   nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;margin-left:22px;transition:color .2s}
   nav a:hover{color:#fff}
 
+  .lang{cursor:pointer;margin-right:6px;padding:6px 13px;border-radius:999px;font:800 12px inherit;font-family:inherit;color:#fff;letter-spacing:.06em;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);transition:background .2s}
+  .lang:hover{background:rgba(255,255,255,.22)}
   .hero{padding:80px 0 70px;text-align:center}
   .pill{display:inline-block;padding:7px 16px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.04em;
     background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px)}
@@ -100,79 +102,98 @@
 <div class="wrap">
   <header>
     <div class="logo"><i>M</i> Merma Tech</div>
-    <nav><a href="#uygulamalar">Uygulamalar</a><a href="#iletisim">İletişim</a></nav>
+    <nav><button class="lang" id="lang" type="button" aria-label="Language">TR</button><a href="#uygulamalar" data-i18n="nav_apps">Apps</a><a href="#iletisim" data-i18n="nav_contact">Contact</a></nav>
   </header>
 
   <main>
     <div class="hero">
-      <span class="pill">✨ Google Play'de yayında</span>
-      <h1>Öğren. Gelişir. <span class="grad">Rahatla.</span></h1>
-      <p>Merma Tech olarak sınav hazırlığından yapay zekâya, kodlamadan stres atmaya kadar hayatını kolaylaştıran Android uygulamaları geliştiriyoruz.</p>
-      <a class="cta" href="#uygulamalar">Uygulamaları keşfet ↓</a>
+      <span class="pill" data-i18n="pill">✨ Live on Google Play</span>
+      <h1 data-i18n-html="h1">Learn. Grow. <span class="grad">Relax.</span></h1>
+      <p data-i18n="hero">At Merma Tech we build Android apps that make life easier — from exam prep and AI to coding and stress relief.</p>
+      <a class="cta" href="#uygulamalar"><span data-i18n="cta">Explore the apps ↓</span></a>
       <div class="stats">
-        <div><b>7</b><span>Uygulama</span></div>
+        <div><b>7</b><span data-i18n="st1">Apps</span></div>
         <div><b>Android</b><span>Platform</span></div>
-        <div><b>Ücretsiz</b><span>İndir ve dene</span></div>
+        <div><b data-i18n="st3b">Free</b><span data-i18n="st3">Download and try</span></div>
       </div>
     </div>
 
     <section id="uygulamalar">
-      <h2>Uygulamalarım</h2>
-      <p class="sub">Karta dokun, doğrudan Google Play'de aç.</p>
+      <h2 data-i18n="h_apps">My Apps</h2>
+      <p class="sub" data-i18n="sub">Tap a card to open it directly on Google Play.</p>
       <div class="grid">
 
         <div class="card c1 reveal">
           <img class="icon" src="icons/myapplicationbottom.webp" alt="" width="64" height="64"><h3>YDS Kelime Ezberle: YÖKDİL YDT</h3>
-          <p>YDS, YÖKDİL ve YDT'ye hazırlananlar için kelime ezberleme uygulaması.</p>
-          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.myapplicationbottom"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/ydsyokdilydtprivacy/">🔒 Gizlilik Politikası</a></div>
+          <p data-i18n="d1">A vocabulary memorization app for YDS, YÖKDİL and YDT exam candidates.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.myapplicationbottom"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg><span data-i18n="open">Open on Google Play</span> <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/ydsyokdilydtprivacy/"><span data-i18n="priv">🔒 Privacy Policy</span></a></div>
 
         <div class="card c2 reveal">
           <img class="icon" src="icons/zensoapbubbles.webp" alt="" width="64" height="64"><h3>Sabun Köpüğü Zen: Stres Atma</h3>
-          <p>Baloncukları patlat, zihnini sakinleştir. Huzurlu bir anti-stres oyunu.</p>
-          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.zensoapbubbles"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/zen-soap-privacy/">🔒 Gizlilik Politikası</a></div>
+          <p data-i18n="d2">Pop the bubbles and calm your mind. A peaceful anti-stress game.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.zensoapbubbles"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg><span data-i18n="open">Open on Google Play</span> <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/zen-soap-privacy/"><span data-i18n="priv">🔒 Privacy Policy</span></a></div>
 
         <div class="card c3 reveal">
           <img class="icon" src="icons/pycraft.webp" alt="" width="64" height="64"><h3>PyCraft: Python Öğren</h3>
-          <p>Python'u adım adım, uygulayarak öğren. Kodlamaya eğlenceli bir giriş.</p>
-          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.pycraft"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/pycraft_privacy/">🔒 Gizlilik Politikası</a></div>
+          <p data-i18n="d3">Learn Python step by step, hands-on. A fun introduction to coding.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.pycraft"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg><span data-i18n="open">Open on Google Play</span> <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/pycraft_privacy/"><span data-i18n="priv">🔒 Privacy Policy</span></a></div>
 
         <div class="card c4 reveal">
           <img class="icon" src="icons/kariyer.webp" alt="" width="64" height="64"><h3>YZ Çağında Kariyer</h3>
-          <p>Yapay zekâ çağında kariyerini şekillendir, geleceğe hazır ol.</p>
-          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.kariyer"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/privacy_policy_kariyer/">🔒 Gizlilik Politikası</a></div>
+          <p data-i18n="d4">Shape your career in the age of AI and get ready for the future.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.kariyer"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg><span data-i18n="open">Open on Google Play</span> <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/privacy_policy_kariyer/"><span data-i18n="priv">🔒 Privacy Policy</span></a></div>
 
         <div class="card c5 reveal">
           <img class="icon" src="icons/derinzeka.webp" alt="" width="64" height="64"><h3>DerinZeka: Yapay Zeka Öğren</h3>
-          <p>Yapay zekâyı sade ve anlaşılır şekilde öğren, kendini geliştir.</p>
-          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.derinzeka"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/derin_zeka/">🔒 Gizlilik Politikası</a></div>
+          <p data-i18n="d5">Learn artificial intelligence in a simple, clear way and grow your skills.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.derinzeka"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg><span data-i18n="open">Open on Google Play</span> <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/derin_zeka/"><span data-i18n="priv">🔒 Privacy Policy</span></a></div>
 
         <div class="card c6 reveal">
           <img class="icon" src="icons/lgsngilizcekelimeler8snf.webp" alt="" width="64" height="64"><h3>LGS İngilizce Kelime - Pati</h3>
-          <p>8. sınıf LGS İngilizce kelimelerini eğlenceli şekilde çalış ve pekiştir.</p>
-          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.lgsngilizcekelimeler8snf"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/pati-gizlilik/">🔒 Gizlilik Politikası</a></div>
+          <p data-i18n="d6">Study and reinforce 8th-grade LGS English vocabulary in a fun way.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.lgsngilizcekelimeler8snf"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg><span data-i18n="open">Open on Google Play</span> <em>→</em></a><a class="priv" target="_blank" rel="noopener" href="https://mehmetalisicak.github.io/pati-gizlilik/"><span data-i18n="priv">🔒 Privacy Policy</span></a></div>
 
         <div class="card c7 reveal">
           <img class="icon" src="icons/bilisimteknolojileri.webp" alt="" width="64" height="64"><h3>Bilişim Teknolojileri - Megep</h3>
-          <p>MEGEP bilişim teknolojileri alanı için konu anlatımı ve çalışma desteği.</p>
-          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.bilisimteknolojileri"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg>Google Play'de aç <em>→</em></a></div>
+          <p data-i18n="d7">Lessons and study support for the MEGEP information technologies field.</p>
+          <a class="play" target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.mas.bilisimteknolojileri"><svg viewBox="0 0 24 24"><path d="M3.6 1.9c-.3.2-.5.6-.5 1.1v18c0 .5.2.9.5 1.1l10-10.1L3.6 1.9zm11.4 8.1 2.8-2.8L5.2 1l9.8 9zm0 4 9.8 9L5.2 23l12.6-6.2L15 14zm3.9-2.2 2.9 1.6c.8.5.8 1.3 0 1.8L19 16.8l-3-2.8 2.9-2.2z"/></svg><span data-i18n="open">Open on Google Play</span> <em>→</em></a></div>
 
       </div>
     </section>
 
     <section id="iletisim">
       <div class="contact reveal">
-        <h2>Bize ulaş 💌</h2>
-        <p>Görüş, öneri, hata bildirimi veya iş birliği için yazabilirsin. Her mesaja dönüş yapıyoruz.</p>
+        <h2 data-i18n="h_contact">Get in touch 💌</h2>
+        <p data-i18n="c_p">Feedback, suggestions, bug reports or collaboration — write to us. We reply to every message.</p>
         <a class="mail" href="mailto:getinfo.myapp@gmail.com">getinfo.myapp@gmail.com</a>
       </div>
     </section>
   </main>
 
-  <footer>© <span id="y">2026</span> <strong>Merma Tech</strong> · Tüm hakları saklıdır.</footer>
+  <footer>© <span id="y">2026</span> <strong>Merma Tech</strong> · <span data-i18n="rights">All rights reserved.</span></footer>
 </div>
 
 <script>
   document.getElementById('y').textContent=new Date().getFullYear();
+
+  // language: default English, Turkish on request
+  const TR={"nav_apps": "Uygulamalar", "nav_contact": "İletişim", "pill": "✨ Google Play'de yayında", "h1": "Öğren. Gelişir. <span class=\"grad\">Rahatla.</span>", "hero": "Merma Tech olarak sınav hazırlığından yapay zekâya, kodlamadan stres atmaya kadar hayatını kolaylaştıran Android uygulamaları geliştiriyoruz.", "cta": "Uygulamaları keşfet ↓", "st1": "Uygulama", "st3b": "Ücretsiz", "st3": "İndir ve dene", "h_apps": "Uygulamalarım", "sub": "Karta dokun, doğrudan Google Play'de aç.", "h_contact": "Bize ulaş 💌", "c_p": "Görüş, öneri, hata bildirimi veya iş birliği için yazabilirsin. Her mesaja dönüş yapıyoruz.", "rights": "Tüm hakları saklıdır.", "open": "Google Play'de aç", "priv": "🔒 Gizlilik Politikası", "d1": "YDS, YÖKDİL ve YDT'ye hazırlananlar için kelime ezberleme uygulaması.", "d2": "Baloncukları patlat, zihnini sakinleştir. Huzurlu bir anti-stres oyunu.", "d3": "Python'u adım adım, uygulayarak öğren. Kodlamaya eğlenceli bir giriş.", "d4": "Yapay zekâ çağında kariyerini şekillendir, geleceğe hazır ol.", "d5": "Yapay zekâyı sade ve anlaşılır şekilde öğren, kendini geliştir.", "d6": "8. sınıf LGS İngilizce kelimelerini eğlenceli şekilde çalış ve pekiştir.", "d7": "MEGEP bilişim teknolojileri alanı için konu anlatımı ve çalışma desteği."};
+  const EN={};
+  document.querySelectorAll('[data-i18n],[data-i18n-html]').forEach(el=>{const k=el.dataset.i18n||el.dataset.i18nHtml;EN[k]=el.innerHTML});
+  const meta={en:['Merma Tech — Android Apps'],tr:['Merma Tech — Android Uygulamaları']};
+  const btn=document.getElementById('lang');
+  function setLang(l){
+    const d=l==='tr'?TR:EN;
+    document.querySelectorAll('[data-i18n],[data-i18n-html]').forEach(el=>{const k=el.dataset.i18n||el.dataset.i18nHtml;if(d[k]!=null)el.innerHTML=d[k]});
+    document.documentElement.lang=l;document.title=meta[l][0];btn.textContent=l==='tr'?'EN':'TR';
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  let cur='en';
+  try{const q=new URLSearchParams(location.search).get('lang');cur=q||localStorage.getItem('lang')||'en'}catch(e){}
+  if(cur!=='tr')cur='en';
+  btn.onclick=()=>{cur=cur==='tr'?'en':'tr';setLang(cur)};
+  if(cur==='tr')setLang('tr');
+
   // yükselen baloncuklar
   const bg=document.getElementById('bg');
   for(let i=0;i<14;i++){
